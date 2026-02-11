@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXO APODACA | El Futuro Inmobiliario</title>
+    
+    <!-- Google Fonts: Outfit (Futurista/Geometrica) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Iconos Phosphor -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS (Configuración Avanzada) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0F19',     // Negro azulado profundo
+                            primary: '#2563EB',  // Azul eléctrico
+                            accent: '#06B6D4',   // Cyan futurista
+                            light: '#F8FAFC',    // Blanco hielo
+                            glass: 'rgba(255, 255, 255, 0.05)'
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to bottom, rgba(11, 15, 25, 0.6), rgba(11, 15, 25, 1)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')",
+                        'grid-pattern': "url('data:image/svg+xml,%3Csvg width=\"40\" height=\"40\" viewBox=\"0 0 40 40\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cg fill=\"%232563EB\" fill-opacity=\"0.05\" fill-rule=\"evenodd\"%3E%3Cpath d=\"M0 40L40 0H20L0 20M40 40V20L20 40\"/%3E%3C/g%3E%3C/svg%3E')"
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Estilos personalizados para efectos especiales */
+        body {
+            background-color: #0B0F19;
+            color: #F8FAFC;
+            overflow-x: hidden;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(90deg, #F8FAFC 0%, #06B6D4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -5px rgba(6, 182, 212, 0.3);
+            border-color: #06B6D4;
+        }
+
+        /* Scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06B6D4; 
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-accent selection:text-brand-dark">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-panel border-b-0" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="text-2xl font-bold tracking-tighter flex items-center gap-2 group">
+                <i class="ph-fill ph-hexagon text-brand-accent text-3xl group-hover:rotate-90 transition-transform duration-500"></i>
+                <span>NEXO<span class="text-brand-accent">APODACA</span></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold tracking-wide">
+                <a href="#inicio" class="hover:text-brand-accent transition-colors">INICIO</a>
+                <a href="#propiedades" class="hover:text-brand-accent transition-colors">PROPIEDADES</a>
+                <a href="#apodaca" class="hover:text-brand-accent transition-colors">ZONA INDUSTRIAL</a>
+                <a href="#contacto" class="px-6 py-2 bg-brand-primary hover:bg-brand-accent text-white rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(37,99,235,0.5)]">
+                    AGENDAR CITA
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-2xl" onclick="toggleMenu()">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden absolute top-full left-0 w-full bg-brand-dark border-b border-gray-800 p-6 flex flex-col gap-4 md:hidden">
+            <a href="#inicio" class="block py-2 hover:text-brand-accent">INICIO</a>
+            <a href="#propiedades" class="block py-2 hover:text-brand-accent">PROPIEDADES</a>
+            <a href="#apodaca" class="block py-2 hover:text-brand-accent">POR QUÉ APODACA</a>
+            <a href="#contacto" class="block py-2 text-brand-accent font-bold">CONTACTAR</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="inicio" class="relative h-screen flex items-center justify-center bg-hero-pattern bg-cover bg-center bg-no-repeat bg-fixed">
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-1 mb-6 rounded-full border border-brand-accent/30 bg-brand-accent/10 backdrop-blur-md" data-aos="fade-down">
+                <span class="text-brand-accent text-xs font-bold tracking-[0.2em] uppercase">Nuevo León, México</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight" data-aos="fade-up" data-aos-delay="100">
+                Tu Futuro en el <br>
+                <span class="text-gradient">Corazón Industrial</span>
+            </h1>
+            
+            <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light" data-aos="fade-up" data-aos-delay="200">
+                Descubre residencias exclusivas y terrenos de alta plusvalía en la zona de mayor crecimiento de Apodaca. Donde la inversión inteligente se encuentra con el diseño moderno.
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="300">
+                <a href="#casas" class="px-8 py-4 bg-brand-primary hover:bg-blue-600 rounded-lg font-bold transition-all flex items-center justify-center gap-2 group">
+                    <i class="ph ph-house text-xl"></i> Ver Casas
+                    <i class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                </a>
+                <a href="#terrenos" class="px-8 py-4 glass-panel hover:bg-white/10 rounded-lg font-bold transition-all flex items-center justify-center gap-2">
+                    <i class="ph ph-map-trifold text-xl text-brand-accent"></i> Ver Terrenos
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-gray-500">
+            <i class="ph ph-caret-double-down text-3xl"></i>
+        </div>
+    </header>
+
+    <!-- Stats Section -->
+    <section class="py-12 border-b border-gray-800 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div data-aos="zoom-in">
+                <p class="text-4xl font-bold text-white">15+</p>
+                <p class="text-sm text-gray-500 uppercase tracking-widest mt-2">Parques Industriales</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="100">
+                <p class="text-4xl font-bold text-white">10min</p>
+                <p class="text-sm text-gray-500 uppercase tracking-widest mt-2">Al Aeropuerto MTY</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="200">
+                <p class="text-4xl font-bold text-white">24/7</p>
+                <p class="text-sm text-gray-500 uppercase tracking-widest mt-2">Seguridad Privada</p>
+            </div>
+            <div data-aos="zoom-in" data-aos-delay="300">
+                <p class="text-4xl font-bold text-brand-accent">12%</p>
+                <p class="text-sm text-gray-500 uppercase tracking-widest mt-2">Plusvalía Anual</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Propiedades Destacadas -->
+    <section id="propiedades" class="py-24 bg-brand-dark bg-grid-pattern relative">
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-brand-dark via-transparent to-brand-dark pointer-events-none"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="text-brand-accent font-bold tracking-widest uppercase mb-2">Catálogo Exclusivo</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white">Oportunidades en Venta</h3>
+                </div>
+                <div class="flex gap-2 mt-6 md:mt-0">
+                    <button class="px-4 py-2 rounded-full border border-brand-primary bg-brand-primary text-white text-sm">Todo</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-700 hover:border-brand-accent text-gray-300 text-sm transition-colors">Casas</button>
+                    <button class="px-4 py-2 rounded-full border border-gray-700 hover:border-brand-accent text-gray-300 text-sm transition-colors">Terrenos</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Propiedad 1: Casa -->
+                <div class="glass-panel rounded-2xl overflow-hidden group card-hover transition-all duration-300" data-aos="fade-up">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute top-4 left-4 z-10 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">CASA</div>
+                        <!-- Imagen actualizada y corregida -->
+                        <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2070&auto=format&fit=crop" alt="Casa Moderna Apodaca" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Residencial Dream Lagoons</h4>
+                        <p class="text-gray-400 text-sm mb-4 flex items-center gap-1"><i class="ph ph-map-pin"></i> Apodaca Centro, NL</p>
+                        
+                        <div class="flex justify-between border-t border-gray-800 pt-4 text-sm text-gray-300">
+                            <span class="flex items-center gap-1"><i class="ph ph-bed"></i> 3 Rec</span>
+                            <span class="flex items-center gap-1"><i class="ph ph-shower"></i> 2.5 Baños</span>
+                            <span class="flex items-center gap-1"><i class="ph ph-ruler-combined"></i> 180m²</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Propiedad 2: Terreno -->
+                <div class="glass-panel rounded-2xl overflow-hidden group card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute top-4 left-4 z-10 bg-brand-accent text-brand-dark text-xs font-bold px-3 py-1 rounded-full">TERRENO</div>
+                        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2832&auto=format&fit=crop" alt="Terreno Industrial" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Lote Comercial Santa Rosa</h4>
+                        <p class="text-gray-400 text-sm mb-4 flex items-center gap-1"><i class="ph ph-map-pin"></i> Carr. Mezquital, Apodaca</p>
+                        
+                        <div class="flex justify-between border-t border-gray-800 pt-4 text-sm text-gray-300">
+                            <span class="flex items-center gap-1"><i class="ph ph-selection-all"></i> Uso Mixto</span>
+                            <span class="flex items-center gap-1"><i class="ph ph-ruler-combined"></i> 500m²</span>
+                            <span class="flex items-center gap-1 text-green-400"><i class="ph ph-check-circle"></i> Listo para escriturar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Propiedad 3: Casa -->
+                <div class="glass-panel rounded-2xl overflow-hidden group card-hover transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-64 overflow-hidden">
+                        <div class="absolute top-4 left-4 z-10 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">CASA SMART</div>
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2053&auto=format&fit=crop" alt="Casa Minimalista" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-2">Cerradas de Concordia</h4>
+                        <p class="text-gray-400 text-sm mb-4 flex items-center gap-1"><i class="ph ph-map-pin"></i> Zona Concordia, Apodaca</p>
+                        
+                        <div class="flex justify-between border-t border-gray-800 pt-4 text-sm text-gray-300">
+                            <span class="flex items-center gap-1"><i class="ph ph-bed"></i> 3 Rec</span>
+                            <span class="flex items-center gap-1"><i class="ph ph-car"></i> Cochera Doble</span>
+                            <span class="flex items-center gap-1"><i class="ph ph-ruler-combined"></i> 160m²</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#" class="inline-flex items-center gap-2 text-brand-accent hover:text-white transition-colors border-b border-brand-accent pb-1">Ver inventario completo <i class="ph ph-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por Qué Apodaca (Feature Section) -->
+    <section id="apodaca" class="py-24 relative overflow-hidden">
+        <!-- Decoration elements -->
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-brand-primary/20 rounded-full blur-3xl"></div>
+        <div class="absolute -left-20 bottom-20 w-96 h-96 bg-brand-accent/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-brand-accent font-bold tracking-widest uppercase mb-2">Ubicación Estratégica</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-white mb-6">El Capital Industrial de Nuevo León</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Vivir en Apodaca significa estar conectado con el mundo. Hogar del Aeropuerto Internacional Mariano Escobedo y de más de 70 parques industriales de clase mundial.
+                    </p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-brand-primary/20 flex items-center justify-center text-brand-primary">
+                                <i class="ph ph-airplane-tilt text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Conectividad Global</h4>
+                                <p class="text-sm text-gray-400">Acceso inmediato al Aeropuerto Internacional.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-brand-accent/20 flex items-center justify-center text-brand-accent">
+                                <i class="ph ph-factory text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Hub Industrial</h4>
+                                <p class="text-sm text-gray-400">Cerca de Tesla suppliers y empresas Fortune 500.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400">
+                                <i class="ph ph-tree-palm text-2xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white">Calidad de Vida</h4>
+                                <p class="text-sm text-gray-400">Plazas comerciales, colegios y parques modernos.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="relative" data-aos="fade-left">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Imágenes actualizadas: Naves Industriales y Centros Corporativos -->
+                        <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" alt="Naves Industriales Apodaca" class="rounded-2xl object-cover h-64 w-full translate-y-8 glass-panel border-0 opacity-80 hover:opacity-100 transition-opacity">
+                        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" alt="Centros de Negocios" class="rounded-2xl object-cover h-64 w-full glass-panel border-0 opacity-80 hover:opacity-100 transition-opacity">
+                    </div>
+                    <!-- Decorative floating card -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-dark/90 backdrop-blur border border-brand-accent/30 p-6 rounded-xl text-center shadow-2xl">
+                        <p class="text-4xl font-bold text-white">70+</p>
+                        <p class="text-xs uppercase tracking-wider text-brand-accent">Parques Industriales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería Minimalista (Apodaca Vibe) -->
+    <section class="py-12 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-2xl font-bold text-center mb-10 text-gray-500 tracking-widest uppercase">Lifestyle en Apodaca</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 h-64 md:h-80">
+                <div class="relative group overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Imagen actualizada: Modernidad -->
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" alt="Estilo de vida moderno" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="bg-black/70 px-3 py-1 text-xs text-white rounded">Modernidad</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg cursor-pointer md:col-span-2">
+                    <!-- Imagen actualizada: Industria Tecnológica -->
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" alt="Tecnología e Industria" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                     <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="bg-black/70 px-3 py-1 text-xs text-white rounded">Industria</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-lg cursor-pointer">
+                    <!-- Imagen actualizada: Hogar Confortable -->
+                    <img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?q=80&w=2080&auto=format&fit=crop" alt="Interior hogar" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                     <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                        <span class="bg-black/70 px-3 py-1 text-xs text-white rounded">Hogar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="glass-panel p-8 md:p-12 rounded-3xl border border-gray-800 shadow-2xl" data-aos="fade-up">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Invierte en tu Futuro</h2>
+                    <p class="text-gray-400">Déjanos tus datos. Un asesor especializado en la zona de Apodaca te contactará en menos de 24 horas.</p>
+                </div>
+
+                <form class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Nombre</label>
+                            <input type="text" class="w-full bg-brand-dark/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all" placeholder="Tu nombre completo">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-2">Teléfono</label>
+                            <input type="tel" class="w-full bg-brand-dark/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all" placeholder="(81) ...">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Interés Principal</label>
+                        <select class="w-full bg-brand-dark/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent transition-all">
+                            <option>Comprar Casa en Apodaca</option>
+                            <option>Terreno Industrial</option>
+                            <option>Terreno Residencial</option>
+                            <option>Inversión</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-400 mb-2">Mensaje</label>
+                        <textarea rows="4" class="w-full bg-brand-dark/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-accent focus:ring-1 focus:ring-brand-accent transition-all" placeholder="¿Qué características buscas?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gradient-to-r from-brand-primary to-brand-accent text-white font-bold py-4 rounded-lg hover:shadow-[0_0_20px_rgba(6,182,212,0.4)] transition-all transform hover:-translate-y-1">
+                        SOLICITAR INFORMACIÓN
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-gray-900 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <i class="ph-fill ph-hexagon text-brand-accent text-xl"></i>
+                <span class="font-bold text-white">NEXO APODACA</span>
+            </div>
+            
+            <div class="text-gray-500">
+                &copy; 2024 Nexo Apodaca Real Estate. Todos los derechos reservados.
+            </div>
+
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:bg-brand-primary hover:text-white transition-all"><i class="ph-fill ph-facebook-logo"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:bg-brand-primary hover:text-white transition-all"><i class="ph-fill ph-instagram-logo"></i></a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center text-gray-400 hover:bg-brand-primary hover:text-white transition-all"><i class="ph-fill ph-whatsapp-logo"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Whatsapp Floating Button -->
+    <a href="#" class="fixed bottom-8 right-8 z-50 bg-green-500 text-white w-14 h-14 rounded-full shadow-[0_0_20px_rgba(34,197,94,0.5)] flex items-center justify-center hover:scale-110 transition-transform duration-300 group">
+        <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+        <span class="absolute right-full mr-4 bg-white text-black px-3 py-1 rounded-lg text-xs font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">¡Contáctanos!</span>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Inicializar animaciones
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 50
+        });
+
+        // Navbar effect on scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-brand-dark/80', 'shadow-lg');
+                navbar.classList.remove('border-b-0');
+                navbar.classList.add('border-b', 'border-gray-800');
+            } else {
+                navbar.classList.remove('bg-brand-dark/80', 'shadow-lg', 'border-b', 'border-gray-800');
+                navbar.classList.add('border-b-0');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
